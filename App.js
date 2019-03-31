@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View,ScrollView} from 'react-native';
 import { Button, ThemeProvider,ListItem  } from 'react-native-elements';
 import ContentLoader from 'react-native-content-loader'
 import {Circle, Rect} from 'react-native-svg'
@@ -59,7 +59,7 @@ export default class App extends Component<Props> {
       
       <ThemeProvider>
         <Button title="Hello World!" />
-        <View>
+        <ScrollView >
           {
             list.map((l, i) => (
               <ListItem
@@ -70,8 +70,10 @@ export default class App extends Component<Props> {
               />
             ))
           }
-        </View>
-        <ContentLoader height={300} duration={1000}>
+        </ScrollView >
+
+        <ScrollView>
+<ContentLoader height={300} duration={1000}>
           <Circle cx="30" cy="30" r="30"/>
           <Rect x="75" y="13" rx="4" ry="4" width="100" height="13"/>
           <Rect x="75" y="37" rx="4" ry="4" width="50" height="8"/>
@@ -102,6 +104,8 @@ export default class App extends Component<Props> {
         <Rect x="185" y="40" rx="3" ry="3" width="60" height="10"/>
         <Rect x="0" y="60" rx="3" ry="3" width="30" height="10"/>
     </ContentLoader>
+        </ScrollView>
+        
       </ThemeProvider>
      
       
