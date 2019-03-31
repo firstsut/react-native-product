@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View,ScrollView} from 'react-native';
+import {Platform,ScrollView} from 'react-native';
 import { Button, ThemeProvider,ListItem  } from 'react-native-elements';
 import ContentLoader from 'react-native-content-loader'
 import {Circle, Rect} from 'react-native-svg'
@@ -42,15 +42,22 @@ const list = [
     subtitle: 'Vice Chairman'
   },
   {
-    name: 'Amy Farha',
-    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    subtitle: 'Vice President'
+    name: 'Chris Jackson',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+    subtitle: 'Vice Chairman'
   },
   {
     name: 'Chris Jackson',
     avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
     subtitle: 'Vice Chairman'
-  }
+  },
+  {
+    name: 'Chris Jackson',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+  
+ 
 ];
 
 export default class App extends Component<Props> {
@@ -59,7 +66,7 @@ export default class App extends Component<Props> {
       
       <ThemeProvider>
         <Button title="Hello World!" />
-        <ScrollView >
+        <ScrollView overScrollMode="always">
           {
             list.map((l, i) => (
               <ListItem
@@ -72,39 +79,12 @@ export default class App extends Component<Props> {
           }
         </ScrollView >
 
-        <ScrollView>
-<ContentLoader height={300} duration={1000}>
-          <Circle cx="30" cy="30" r="30"/>
-          <Rect x="75" y="13" rx="4" ry="4" width="100" height="13"/>
-          <Rect x="75" y="37" rx="4" ry="4" width="50" height="8"/>
-          <Rect x="0" y="70" rx="5" ry="5" width="400" height="200"/>
-      </ContentLoader>
-      <ContentLoader primaryColor="#e8f7ff"
-               secondaryColor="#4dadf7"
-               duration={700}
-                  height={140}>
-        <Rect x="0" y="0" rx="5" ry="5" width="70" height="70"/>
-        <Rect x="80" y="17" rx="4" ry="4" width="300" height="13"/>
-        <Rect x="80" y="40" rx="3" ry="3" width="250" height="10"/>
-        <Rect x="0" y="80" rx="3" ry="3" width="350" height="10"/>
-        <Rect x="0" y="100" rx="3" ry="3" width="200" height="10"/>
-        <Rect x="0" y="120" rx="3" ry="3" width="360" height="10"/>
-    </ContentLoader>
-    <ContentLoader
-            primaryColor="#fff0f6"
-            secondaryColor="#f783ac"
-            height={80}>
-        <Rect x="0" y="0" rx="3" ry="3" width="70" height="10"/>
-        <Rect x="80" y="0" rx="3" ry="3" width="100" height="10"/>
-        <Rect x="190" y="0" rx="3" ry="3" width="10" height="10"/>
-        <Rect x="15" y="20" rx="3" ry="3" width="130" height="10"/>
-        <Rect x="155" y="20" rx="3" ry="3" width="130" height="10"/>
-        <Rect x="15" y="40" rx="3" ry="3" width="90" height="10"/>
-        <Rect x="115" y="40" rx="3" ry="3" width="60" height="10"/>
-        <Rect x="185" y="40" rx="3" ry="3" width="60" height="10"/>
-        <Rect x="0" y="60" rx="3" ry="3" width="30" height="10"/>
-    </ContentLoader>
-        </ScrollView>
+        <ContentLoader   height={300} width={400} duration={1000}>
+          <Circle cx="40" cy="40" r="30"/>
+          <Rect x="75" y="23" rx="4" ry="4" width="100" height="13"/>
+          <Rect x="75" y="47" rx="4" ry="4" width="50" height="8"/>
+          <Rect x="10" y="80" rx="5" ry="5" width="390" height="200"/>
+        </ContentLoader>     
         
       </ThemeProvider>
      
