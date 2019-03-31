@@ -8,7 +8,7 @@
 
 import React, {Component} from 'react';
 import {Platform,ScrollView} from 'react-native';
-import { Button, ThemeProvider,ListItem  } from 'react-native-elements';
+import {  ThemeProvider,ListItem ,Header } from 'react-native-elements';
 import ContentLoader from 'react-native-content-loader'
 import {Circle, Rect} from 'react-native-svg'
 
@@ -65,7 +65,11 @@ export default class App extends Component<Props> {
     return (
       
       <ThemeProvider>
-        <Button title="Hello World!" />
+        <Header
+            leftComponent={{ icon: 'menu', color: '#fff' }}
+            centerComponent={{ text: 'React Product', style: { color: '#fff' } }}
+            rightComponent={{ icon: 'home', color: '#fff' }}
+          />
         <ScrollView overScrollMode="always">
           {
             list.map((l, i) => (
