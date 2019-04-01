@@ -10,6 +10,10 @@ import {
   createBottomTabNavigator,
   createAppContainer
 } from 'react-navigation';
+import { Provider } from 'react-redux';
+import { createStore,applyMiddleware } from 'redux';
+import reducers from './src/reducers';
+import reduxThunk from 'redux-thunk';
 
 /* const HomeNavigator = createSwitchNavigator({
   Welcome: WelcomeScreen,
@@ -102,9 +106,11 @@ const theme = {
 class App extends Component {  
   render() {
     return (
-      <ThemeProvider theme={theme}>
-         <AppContainer/>
-      </ThemeProvider>
+      <Provider store={createStore(reducers,{},applyMiddleware(reduxThunk))}>
+        <ThemeProvider theme={theme}>
+          <AppContainer/>
+        </ThemeProvider>
+      </Provider>
     )
   }
 

@@ -16,7 +16,7 @@ class SplashScreen extends React.Component {
   async getShowApp(){
     try {
       const showRealApp = await AsyncStorage.getItem('@SHOW_REAL_APP');    
-      return (showRealApp !== null && showRealApp ? true : false)          
+      return (showRealApp !== null && showRealApp == 'Y' ? true : false)          
     } catch (error) {
       return false; 
     }
@@ -28,13 +28,14 @@ class SplashScreen extends React.Component {
     
 
     const data = await this.performTimeConsumingTask();
-    
+    const showApp = await this.getShowApp();
     if (data !== null) {
-      const showApp = await this.getShowApp();
+      
       if(showApp){
-        this.props.navigation.navigate('GetStart');
-      }else{
         this.props.navigation.navigate('App');
+      
+      }else{
+        this.props.navigation.navigate('GetStart');
       }
       
     }

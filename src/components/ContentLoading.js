@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
-import ContentLoader from 'react-native-content-loader'
-import {Circle, Rect} from 'react-native-svg'
+import {  ListItem } from 'react-native-elements';
 export default class ContentLoading extends Component{
-    constructor(props){
-        super(props);
-    }
     render(){
         const {length} = this.props;
         let result = []
@@ -13,7 +9,21 @@ export default class ContentLoading extends Component{
         }
         return result.map(index=>{
             return (
-            <ContentLoader 
+               
+                <ListItem    
+                    key={index}  
+                    leftAvatar={{ title: ' ',avatarStyle:{backgroundColor:'#ecf0f1'}}}
+                    title=' '  
+                    titleStyle={{width:250,height:20,backgroundColor:'#ecf0f1'}}         
+                    subtitle=' '
+                    subtitleStyle={{width:200,height:20,backgroundColor:'#ecf0f1',marginTop:10}}
+                />
+              
+                
+            )
+        })       
+    }
+    /* <ContentLoader 
                     key={index}
                     height={80}
                     width={400}
@@ -24,8 +34,5 @@ export default class ContentLoading extends Component{
                     <Rect x="89" y="18" rx="4" ry="4" width="297" height="14" /> 
                     <Rect x="89" y="42" rx="3" ry="3" width="270" height="14" /> 
                     <Circle cx="47" cy="40" r="30" />
-                </ContentLoader>
-            )
-        })       
-    }
+                </ContentLoader> */
 }

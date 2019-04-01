@@ -1,25 +1,25 @@
 import React, {Component} from 'react';
 import {ScrollView,RefreshControl,View} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-import {  ThemeProvider,ListItem ,Header,Icon,Button  } from 'react-native-elements';
-import Axios from 'axios';
+import {  ListItem ,Header,Icon,Button  } from 'react-native-elements';
 import ContentLoading from '../components/ContentLoading';
+import { connect } from 'react-redux';
+import { getMovies } from '../actions';
 
-export default class HomeScreen extends Component{
+class HomeScreen extends Component{
   static navigationOptions = {
     title: 'Home'
-  };
-  api_url = 'http://showtimes.everyday.in.th/api/v2/theater/';  
+  }; 
   constructor(props){
-    super(props);
+    super(props);   
     this.state = {
-        loading : false,        
-        movies : []            
-    }
+        loading : false                  
+    }    
   }
+
   showMovies(){
-    if(!this.state.loading && this.state.movies && this.state.movies.length > 0){      
-      return this.state.movies.map((l, i) => (
+    if(!this.state.loading && this.props.movies && this.props.movies.length > 0){      
+      return this.props.movies.map((l, i) => (
         <ListItem
           key={i}          
           leftAvatar={{ title: l.english[0]}}
@@ -29,16 +29,21 @@ export default class HomeScreen extends Component{
         />
       ));
     }else{
-      return <ContentLoading length={10}/>
-    }
-    
+      return (
+          <ContentLoading length={10}/>
+      )
+    }    
   }
 
-  async getMovies(){
-    const response = await Axios.get(this.api_url);
-    if(this.state.loading){   
-      this.setState({movies: response.data.results, loading: false});
-    }
+  async getList(){
+    setTimeout(
+      function() {
+        this.props.getMovies();
+        this.stopLoading(); 
+      }
+      .bind(this),
+      200
+    );   
   }
 
 
@@ -52,61 +57,67 @@ export default class HomeScreen extends Component{
     
   }
 
-  async componentWillMount() {    
-    this.setState({loading: true});   
+  async startLoading() {          
+    this.getList();     
+  }
+
+  stopLoading() {       
+    this.setState({loading: false});   
   }
  
-  async componentDidMount() {     
-    await this.getMovies();
+  async componentDidMount() {  
+    this.setState({loading: true});  
+    this.startLoading();       
+   
   }
 
-  _onRefresh = () => {
-    this.getMovies();
+  _onRefresh =async () => {    
+    this.setState({loading: true});  
+    this.startLoading();       
   }
-
-  componentWillUnmount() {  
-    this.setState({loading: false});
-  }
-
- 
-  
-  render() {  
+  render() {      
     return (
       
       <View>
         <Header            
             backgroundImageStyle ="linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)"        
             centerComponent={{ text: 'Movie Theaters TH', style: { color: '#2c3e50',fontSize:18} }}            
-      />
-    <View style={{flexDirection: 'row',justifyContent:'center'}}>
-        <Button
-          icon={
-            <Icon
-              name="clear"                    
-              color="black"
-            />
-          }                
-          iconLeft
-          type="outline"
-          titleStyle={{color:'black'}}
-          containerStyle={{marginTop:10,marginBottom:10}}
-          onPress={()=>this.clearShowRealApp()}
-          title="Clear Get Start App"
-    />   
-    </View>
-          
-    <ScrollView
-        refreshControl={
-          <RefreshControl
-            refreshing={false}
-            onRefresh={this._onRefresh}
-          />
-        }  
-        overScrollMode="always">
-        {this.showMovies()}
-      </ScrollView >
+        />
+        <View style={{flexDirection: 'row',justifyContent:'center'}}>
+            <Button
+              icon={
+                <Icon
+                  name="clear"                    
+                  color="black"
+                />
+              }                
+              iconLeft
+              type="outline"
+              titleStyle={{color:'black'}}
+              containerStyle={{marginTop:10,marginBottom:10}}
+              onPress={()=>this.clearShowRealApp()}
+              title="Clear Get Start App"
+        />   
+        </View>
+    
+         <ScrollView
+            refreshControl={
+              <RefreshControl
+                refreshing={false}
+                onRefresh={()=>this._onRefresh()}
+              />
+            }  
+            overScrollMode="always">
+            {this.showMovies()}
+          </ScrollView >
       </View>     
     
      )    
   }
 }
+const mapStateToProps = ({ movies,movies_content_loading }) => ({
+  movies,movies_content_loading
+});
+
+const mapDispachToProps = ({ getMovies });
+export default connect(mapStateToProps, mapDispachToProps)(HomeScreen);
