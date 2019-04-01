@@ -2,4 +2,4 @@
 React Native simple project Product list app
 
 # Demo Screen
-![Demo app example](/Resources/Images/Movie.gif)
+![Demo app example](https://github.com/firstsut/react-native-product/blob/master/resources/images/Movie.gif)
