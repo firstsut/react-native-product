@@ -2,4 +2,4 @@
 React Native simple project Product list app
 
 # Demo Screen
-![Button example gif](Resources/Images/Movie.gif)
+![Demo app example](/Resources/Images/Movie.gif)
