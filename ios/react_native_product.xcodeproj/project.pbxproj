@@ -59,6 +59,27 @@
 		863A6918B9484AF987EEDF88 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 080C1ECE50174B8FBA8605DA /* libRNSVG.a */; };
 		8BBE0A92ABDD41559A4442FB /* libRNSVG-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5281E88C41194B2E92D751F4 /* libRNSVG-tvOS.a */; };
 		8C25B20D04B0490A8D33146E /* libRNCAsyncStorage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 853170084ED74A2A8F2D0AC3 /* libRNCAsyncStorage.a */; };
+		4780721F14F4453F818D8C99 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD9C19AC9F3448E98B77F9A /* libRNGestureHandler.a */; };
+		F503E7F5ACC64BF9885D6773 /* libRNGestureHandler-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC5C671CB04C45B281A82A4F /* libRNGestureHandler-tvOS.a */; };
+		C979910E91D14F70B34692BF /* Kanit-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62F049D2FC144C7CB7CEC1C7 /* Kanit-Black.ttf */; };
+		5816C9FBF2CD408ABDF2D35C /* Kanit-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC5E4ED35294469B79EB347 /* Kanit-BlackItalic.ttf */; };
+		1A76231D710341778DE83784 /* Kanit-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D675741F5E9F42698CC9AE38 /* Kanit-Bold.ttf */; };
+		AD5A8B8B7B9E4231882432B7 /* Kanit-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1FEE32A54B746F484616E49 /* Kanit-BoldItalic.ttf */; };
+		1B65A04D38D14D71B85ED433 /* Kanit-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8CC010DE95345F78883A39F /* Kanit-ExtraBold.ttf */; };
+		75521D1C2A1E43D6B621DB9D /* Kanit-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F3CC57D01C74A16A74483AA /* Kanit-ExtraBoldItalic.ttf */; };
+		020673F8855B446DB77C1EAA /* Kanit-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B75717453CB14C32B8015E1A /* Kanit-ExtraLight.ttf */; };
+		72BD6884B6C04D218AF1BC2B /* Kanit-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DBFEA7C02684D46B78DC688 /* Kanit-ExtraLightItalic.ttf */; };
+		637F9B985444402DBE0F265A /* Kanit-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19D65CB68D0641B18FAB2D12 /* Kanit-Italic.ttf */; };
+		4F1469E8131E49B7920B27EE /* Kanit-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 148808B2581141CCA47E64D9 /* Kanit-Light.ttf */; };
+		A02BFA62876A45F68FB8393C /* Kanit-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B86CF88C54D64B7FBC16DD04 /* Kanit-LightItalic.ttf */; };
+		C50E797F8369496280EC097D /* Kanit-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 318E21A94BCB42F497FC73B1 /* Kanit-Medium.ttf */; };
+		4F8F3E1B440641458D178C77 /* Kanit-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDB555647D024A7C8EF1749B /* Kanit-MediumItalic.ttf */; };
+		8B490D9183CE4249900EDDAD /* Kanit-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FF53E98D32440EF8066261F /* Kanit-Regular.ttf */; };
+		7E63BF0730724E6F84F24629 /* Kanit-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ABA8ECB76FB4048A2DF8831 /* Kanit-SemiBold.ttf */; };
+		E1519178DAE443A6A877E634 /* Kanit-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFBA3106BE374F63B683F370 /* Kanit-SemiBoldItalic.ttf */; };
+		F6295D064C2B4C94BF010036 /* Kanit-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A459BD62F8B4405A8F64D8E1 /* Kanit-Thin.ttf */; };
+		5DD3A178638B4BA5BC8E40A9 /* Kanit-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D26D75820CE8400DB105FF32 /* Kanit-ThinItalic.ttf */; };
+		BE360367CBEF42D3A1B14890 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEA0E7BE672441FE9AFE062A /* libBVLinearGradient.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -389,6 +410,29 @@
 		5281E88C41194B2E92D751F4 /* libRNSVG-tvOS.a */ = {isa = PBXFileReference; name = "libRNSVG-tvOS.a"; path = "libRNSVG-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		ED1CAE33AE4643C8BD4BF9C4 /* RNCAsyncStorage.xcodeproj */ = {isa = PBXFileReference; name = "RNCAsyncStorage.xcodeproj"; path = "../node_modules/@react-native-community/async-storage/ios/RNCAsyncStorage.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		853170084ED74A2A8F2D0AC3 /* libRNCAsyncStorage.a */ = {isa = PBXFileReference; name = "libRNCAsyncStorage.a"; path = "libRNCAsyncStorage.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		48DCAAAEFDAD442FAB37C96B /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; name = "RNGestureHandler.xcodeproj"; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		EAD9C19AC9F3448E98B77F9A /* libRNGestureHandler.a */ = {isa = PBXFileReference; name = "libRNGestureHandler.a"; path = "libRNGestureHandler.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		EC5C671CB04C45B281A82A4F /* libRNGestureHandler-tvOS.a */ = {isa = PBXFileReference; name = "libRNGestureHandler-tvOS.a"; path = "libRNGestureHandler-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		62F049D2FC144C7CB7CEC1C7 /* Kanit-Black.ttf */ = {isa = PBXFileReference; name = "Kanit-Black.ttf"; path = "../assets/fonts/Kanit/Kanit-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8AC5E4ED35294469B79EB347 /* Kanit-BlackItalic.ttf */ = {isa = PBXFileReference; name = "Kanit-BlackItalic.ttf"; path = "../assets/fonts/Kanit/Kanit-BlackItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D675741F5E9F42698CC9AE38 /* Kanit-Bold.ttf */ = {isa = PBXFileReference; name = "Kanit-Bold.ttf"; path = "../assets/fonts/Kanit/Kanit-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B1FEE32A54B746F484616E49 /* Kanit-BoldItalic.ttf */ = {isa = PBXFileReference; name = "Kanit-BoldItalic.ttf"; path = "../assets/fonts/Kanit/Kanit-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A8CC010DE95345F78883A39F /* Kanit-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Kanit-ExtraBold.ttf"; path = "../assets/fonts/Kanit/Kanit-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2F3CC57D01C74A16A74483AA /* Kanit-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; name = "Kanit-ExtraBoldItalic.ttf"; path = "../assets/fonts/Kanit/Kanit-ExtraBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B75717453CB14C32B8015E1A /* Kanit-ExtraLight.ttf */ = {isa = PBXFileReference; name = "Kanit-ExtraLight.ttf"; path = "../assets/fonts/Kanit/Kanit-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9DBFEA7C02684D46B78DC688 /* Kanit-ExtraLightItalic.ttf */ = {isa = PBXFileReference; name = "Kanit-ExtraLightItalic.ttf"; path = "../assets/fonts/Kanit/Kanit-ExtraLightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		19D65CB68D0641B18FAB2D12 /* Kanit-Italic.ttf */ = {isa = PBXFileReference; name = "Kanit-Italic.ttf"; path = "../assets/fonts/Kanit/Kanit-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		148808B2581141CCA47E64D9 /* Kanit-Light.ttf */ = {isa = PBXFileReference; name = "Kanit-Light.ttf"; path = "../assets/fonts/Kanit/Kanit-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B86CF88C54D64B7FBC16DD04 /* Kanit-LightItalic.ttf */ = {isa = PBXFileReference; name = "Kanit-LightItalic.ttf"; path = "../assets/fonts/Kanit/Kanit-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		318E21A94BCB42F497FC73B1 /* Kanit-Medium.ttf */ = {isa = PBXFileReference; name = "Kanit-Medium.ttf"; path = "../assets/fonts/Kanit/Kanit-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BDB555647D024A7C8EF1749B /* Kanit-MediumItalic.ttf */ = {isa = PBXFileReference; name = "Kanit-MediumItalic.ttf"; path = "../assets/fonts/Kanit/Kanit-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9FF53E98D32440EF8066261F /* Kanit-Regular.ttf */ = {isa = PBXFileReference; name = "Kanit-Regular.ttf"; path = "../assets/fonts/Kanit/Kanit-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9ABA8ECB76FB4048A2DF8831 /* Kanit-SemiBold.ttf */ = {isa = PBXFileReference; name = "Kanit-SemiBold.ttf"; path = "../assets/fonts/Kanit/Kanit-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DFBA3106BE374F63B683F370 /* Kanit-SemiBoldItalic.ttf */ = {isa = PBXFileReference; name = "Kanit-SemiBoldItalic.ttf"; path = "../assets/fonts/Kanit/Kanit-SemiBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A459BD62F8B4405A8F64D8E1 /* Kanit-Thin.ttf */ = {isa = PBXFileReference; name = "Kanit-Thin.ttf"; path = "../assets/fonts/Kanit/Kanit-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D26D75820CE8400DB105FF32 /* Kanit-ThinItalic.ttf */ = {isa = PBXFileReference; name = "Kanit-ThinItalic.ttf"; path = "../assets/fonts/Kanit/Kanit-ThinItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3AAB666E2D774964BD9C04BB /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; name = "BVLinearGradient.xcodeproj"; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		DEA0E7BE672441FE9AFE062A /* libBVLinearGradient.a */ = {isa = PBXFileReference; name = "libBVLinearGradient.a"; path = "libBVLinearGradient.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -420,6 +464,8 @@
 				83B2508298494A73AE718F29 /* libRNVectorIcons.a in Frameworks */,
 				863A6918B9484AF987EEDF88 /* libRNSVG.a in Frameworks */,
 				8C25B20D04B0490A8D33146E /* libRNCAsyncStorage.a in Frameworks */,
+				4780721F14F4453F818D8C99 /* libRNGestureHandler.a in Frameworks */,
+				BE360367CBEF42D3A1B14890 /* libBVLinearGradient.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +484,7 @@
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
 				CB550AF748184181815D9AD2 /* libRNVectorIcons-tvOS.a in Frameworks */,
 				8BBE0A92ABDD41559A4442FB /* libRNSVG-tvOS.a in Frameworks */,
+				F503E7F5ACC64BF9885D6773 /* libRNGestureHandler-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +661,8 @@
 				61BE7BA61588431893286D01 /* RNVectorIcons.xcodeproj */,
 				32777DDB7E37426EBC7EC52F /* RNSVG.xcodeproj */,
 				ED1CAE33AE4643C8BD4BF9C4 /* RNCAsyncStorage.xcodeproj */,
+				48DCAAAEFDAD442FAB37C96B /* RNGestureHandler.xcodeproj */,
+				3AAB666E2D774964BD9C04BB /* BVLinearGradient.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -680,6 +729,24 @@
 				EAE4C4A9F6BA4E9F960B9E73 /* Octicons.ttf */,
 				F96A43CB82684D63B291F198 /* SimpleLineIcons.ttf */,
 				18F4947DF19C4CC2A6723F36 /* Zocial.ttf */,
+				62F049D2FC144C7CB7CEC1C7 /* Kanit-Black.ttf */,
+				8AC5E4ED35294469B79EB347 /* Kanit-BlackItalic.ttf */,
+				D675741F5E9F42698CC9AE38 /* Kanit-Bold.ttf */,
+				B1FEE32A54B746F484616E49 /* Kanit-BoldItalic.ttf */,
+				A8CC010DE95345F78883A39F /* Kanit-ExtraBold.ttf */,
+				2F3CC57D01C74A16A74483AA /* Kanit-ExtraBoldItalic.ttf */,
+				B75717453CB14C32B8015E1A /* Kanit-ExtraLight.ttf */,
+				9DBFEA7C02684D46B78DC688 /* Kanit-ExtraLightItalic.ttf */,
+				19D65CB68D0641B18FAB2D12 /* Kanit-Italic.ttf */,
+				148808B2581141CCA47E64D9 /* Kanit-Light.ttf */,
+				B86CF88C54D64B7FBC16DD04 /* Kanit-LightItalic.ttf */,
+				318E21A94BCB42F497FC73B1 /* Kanit-Medium.ttf */,
+				BDB555647D024A7C8EF1749B /* Kanit-MediumItalic.ttf */,
+				9FF53E98D32440EF8066261F /* Kanit-Regular.ttf */,
+				9ABA8ECB76FB4048A2DF8831 /* Kanit-SemiBold.ttf */,
+				DFBA3106BE374F63B683F370 /* Kanit-SemiBoldItalic.ttf */,
+				A459BD62F8B4405A8F64D8E1 /* Kanit-Thin.ttf */,
+				D26D75820CE8400DB105FF32 /* Kanit-ThinItalic.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1146,6 +1213,24 @@
 				7B5CA924F880468FABE3DC1B /* Octicons.ttf in Resources */,
 				0553EE38C33A468599049AE1 /* SimpleLineIcons.ttf in Resources */,
 				EF55EFAAD8AA44A5B5E841E4 /* Zocial.ttf in Resources */,
+				C979910E91D14F70B34692BF /* Kanit-Black.ttf in Resources */,
+				5816C9FBF2CD408ABDF2D35C /* Kanit-BlackItalic.ttf in Resources */,
+				1A76231D710341778DE83784 /* Kanit-Bold.ttf in Resources */,
+				AD5A8B8B7B9E4231882432B7 /* Kanit-BoldItalic.ttf in Resources */,
+				1B65A04D38D14D71B85ED433 /* Kanit-ExtraBold.ttf in Resources */,
+				75521D1C2A1E43D6B621DB9D /* Kanit-ExtraBoldItalic.ttf in Resources */,
+				020673F8855B446DB77C1EAA /* Kanit-ExtraLight.ttf in Resources */,
+				72BD6884B6C04D218AF1BC2B /* Kanit-ExtraLightItalic.ttf in Resources */,
+				637F9B985444402DBE0F265A /* Kanit-Italic.ttf in Resources */,
+				4F1469E8131E49B7920B27EE /* Kanit-Light.ttf in Resources */,
+				A02BFA62876A45F68FB8393C /* Kanit-LightItalic.ttf in Resources */,
+				C50E797F8369496280EC097D /* Kanit-Medium.ttf in Resources */,
+				4F8F3E1B440641458D178C77 /* Kanit-MediumItalic.ttf in Resources */,
+				8B490D9183CE4249900EDDAD /* Kanit-Regular.ttf in Resources */,
+				7E63BF0730724E6F84F24629 /* Kanit-SemiBold.ttf in Resources */,
+				E1519178DAE443A6A877E634 /* Kanit-SemiBoldItalic.ttf in Resources */,
+				F6295D064C2B4C94BF010036 /* Kanit-Thin.ttf in Resources */,
+				5DD3A178638B4BA5BC8E40A9 /* Kanit-ThinItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1285,12 +1370,17 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-community\async-storage\ios",
+					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 				);
 			};
 			name = Debug;
@@ -1317,12 +1407,17 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-community\async-storage\ios",
+					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 				);
 			};
 			name = Release;
@@ -1348,6 +1443,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-community\async-storage\ios",
+					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 				);
 			};
 			name = Debug;
@@ -1372,6 +1469,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-community\async-storage\ios",
+					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 				);
 			};
 			name = Release;
@@ -1406,12 +1505,17 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-community\async-storage\ios",
+					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 				);
 			};
 			name = Debug;
@@ -1446,12 +1550,17 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-community\async-storage\ios",
+					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 				);
 			};
 			name = Release;
@@ -1485,12 +1594,17 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-community\async-storage\ios",
+					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 				);
 			};
 			name = Debug;
@@ -1524,12 +1638,17 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-community\async-storage\ios",
+					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 				);
 			};
 			name = Release;
