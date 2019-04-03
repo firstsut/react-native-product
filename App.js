@@ -4,37 +4,26 @@ import HomeScreen from './src/screens/HomeScreen';
 import AboutScreen from './src/screens/AboutScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
 import GetStartScreen from './src/screens/GetStartScreen';
+import HomeDetailScreen  from './src/screens/HomeDetailScreen';
 import {ThemeProvider,Text,Icon} from 'react-native-elements';
 import {
   createSwitchNavigator,
   createBottomTabNavigator,
-  createAppContainer
+  createAppContainer,
+  createStackNavigator
 } from 'react-navigation';
 import { Provider } from 'react-redux';
 import { createStore,applyMiddleware } from 'redux';
 import reducers from './src/reducers';
 import reduxThunk from 'redux-thunk';
 
-/* const HomeNavigator = createSwitchNavigator({
-  Welcome: WelcomeScreen,
-  Practice: PracticeScreen,
-  Results: ResultsScreen
-}); */
+const HomeNavigator = createStackNavigator({
+  Home: HomeScreen,
+  HomeDetail: HomeDetailScreen
+});  
 
 const AppNavigator = createBottomTabNavigator(
   {
-    Home: {
-      screen: HomeScreen,
-      navigationOptions: {
-        tabBarLabel: ({ tintColor }) => (
-          <Text style={{ fontSize: 10, color: tintColor,textAlign:'center',marginBottom:5 }}>
-            Home
-          </Text>
-        ),
-        tabBarIcon: ({ horizontal, tintColor }) =>
-          <Icon iconStyle={{ marginTop:5 }} type="font-awesome" name="home" size={horizontal ? 20 : 25} color={tintColor} />
-      }
-    },
     About: {
       screen: AboutScreen,
       navigationOptions: {
@@ -44,9 +33,25 @@ const AppNavigator = createBottomTabNavigator(
           </Text>
         ),
         tabBarIcon: ({ horizontal, tintColor }) =>
-          <Icon iconStyle={{ marginTop:5 }} type="font-awesome" name="list" size={horizontal ? 20 : 25} color={tintColor} />
+          <Icon iconStyle={{ marginTop:5 }} type="material"  raised={false} name="list" size={horizontal ? 20 : 25} color={tintColor} />
       }
     },
+
+    Home: {
+      screen: HomeNavigator,
+      navigationOptions: {
+        tabBarLabel: ({ tintColor }) => (
+          <Text style={{ fontSize: 10, color: tintColor,textAlign:'center',marginBottom:5 }}>
+            
+          </Text>
+        ),
+        tabBarIcon: ({ horizontal, tintColor }) =>
+          <Icon iconStyle={{ marginTop:5 }} type="material"  reverse={true}  raised={true} name="home" size={horizontal ? 20 : 30} color={tintColor} />
+        ,  
+       
+      }
+    },
+    
     Settings: {
       screen: SettingsScreen,
       navigationOptions: {
@@ -56,14 +61,21 @@ const AppNavigator = createBottomTabNavigator(
           </Text>
         ),
         tabBarIcon: ({ horizontal, tintColor }) =>
-          <Icon iconStyle={{ marginTop:5 }} type="font-awesome" name="cogs"  size={horizontal ? 20 : 25} color={tintColor} />
+          <Icon iconStyle={{ marginTop:5 }} type="material"  raised={false} name="settings"  size={horizontal ? 20 : 25} color={tintColor} />
       }
-    }
+    }   
   },
-  {
+  {    
+    initialRouteName : 'Home',
     tabBarOptions: {
       activeTintColor: '#27ae60',
-      inactiveTintColor: 'gray'
+      inactiveTintColor: 'gray',
+      style : {
+        borderTopColor : '#27ae60',
+        borderTopWidth: 2,      
+        marginTop:1,
+        backgroundColor : '#fff',
+      }
     }
   }
 );
@@ -71,7 +83,7 @@ const AppNavigator = createBottomTabNavigator(
 const InitialNavigator = createSwitchNavigator({
   Splash: SplashScreen,
   App: AppNavigator,
-  GetStart: GetStartScreen
+  GetStart: GetStartScreen 
 });
 
 const AppContainer = createAppContainer(InitialNavigator);
@@ -99,7 +111,12 @@ const theme = {
       }
     },
     containerStyle : {
-      backgroundColor : '#6cdb9b'
+      backgroundColor : 'rgba(46, 204, 113,.8)',
+    }
+  },
+  Badge : {
+    textStyle: {
+      fontFamily : 'Kanit-Regular'
     }
   }
 };
@@ -107,7 +124,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={createStore(reducers,{},applyMiddleware(reduxThunk))}>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider  theme={theme}>
           <AppContainer/>
         </ThemeProvider>
       </Provider>

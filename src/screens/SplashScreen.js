@@ -8,7 +8,7 @@ class SplashScreen extends React.Component {
     return new Promise((resolve) =>
       setTimeout(
         () => { resolve('result') },
-        3000
+        2000
       )
     )
   }
@@ -32,7 +32,7 @@ class SplashScreen extends React.Component {
     if (data !== null) {
       
       if(showApp){
-        this.props.navigation.navigate('App');
+        this.props.navigation.navigate('App');        
       
       }else{
         this.props.navigation.navigate('GetStart');
@@ -58,7 +58,7 @@ const styles = {
   linearGradient: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',    
+    justifyContent: 'center'    
   },
   
 }

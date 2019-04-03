@@ -1,27 +1,49 @@
 import React, {Component} from 'react';
-import {  ListItem } from 'react-native-elements';
+import {  ListItem,Text,Card,Icon,Button } from 'react-native-elements';
 export default class ContentLoading extends Component{
+    constructor(props){
+        super(props)
+    }
     render(){
-        const {length} = this.props;
+        const {length,type} = this.props;
         let result = []
         for (let i = 0; i < length; i++) {
             result.push(i);
         }
-        return result.map(index=>{
-            return (
-               
-                <ListItem    
-                    key={index}  
-                    leftAvatar={{ title: ' ',avatarStyle:{backgroundColor:'#ecf0f1'}}}
-                    title=' '  
-                    titleStyle={{width:250,height:20,backgroundColor:'#ecf0f1'}}         
-                    subtitle=' '
-                    subtitleStyle={{width:200,height:20,backgroundColor:'#ecf0f1',marginTop:10}}
-                />
-              
+        if(type == 'showtime'){
+            return result.map(index=>{
+                return (
                 
-            )
-        })       
+                    <ListItem    
+                        key={index}  
+                        leftAvatar={{ title: ' ',avatarStyle:{backgroundColor:'#ecf0f1'}}}
+                        title=' '  
+                        titleStyle={{flex:1,height:20,backgroundColor:'#ecf0f1'}}         
+                        subtitle=' '
+                        subtitleStyle={{height:20,backgroundColor:'#ecf0f1',marginTop:10}}
+                    />
+                
+                    
+                ) 
+         })  
+        }else{
+            return result.map(index=>{
+                        return (
+                        
+                            <ListItem    
+                                key={index}  
+                                leftAvatar={{ title: ' ',avatarStyle:{backgroundColor:'#ecf0f1'}}}
+                                title=' '  
+                                titleStyle={{flex:1,height:20,backgroundColor:'#ecf0f1'}}         
+                                subtitle=' '
+                                subtitleStyle={{height:20,backgroundColor:'#ecf0f1',marginTop:10}}
+                            />
+                        
+                            
+                        )
+                    }) 
+        }
+              
     }
     /* <ContentLoader 
                     key={index}

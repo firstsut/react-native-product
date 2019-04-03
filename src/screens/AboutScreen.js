@@ -4,7 +4,14 @@ import styles from '../styles';
 
 class AboutScreen extends React.Component {
   static navigationOptions = {
-    title: 'About'
+    title: 'Home',
+    headerStyle: {
+      backgroundColor: '#f4511e',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
   };
 
   render() {
