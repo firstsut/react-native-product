@@ -16,6 +16,7 @@ import { Provider } from 'react-redux';
 import { createStore,applyMiddleware } from 'redux';
 import reducers from './src/reducers';
 import reduxThunk from 'redux-thunk';
+import * as Animatable from 'react-native-animatable';
 
 const HomeNavigator = createStackNavigator({
   Home: HomeScreen,
@@ -26,55 +27,55 @@ const AppNavigator = createBottomTabNavigator(
   {
     About: {
       screen: AboutScreen,
-      navigationOptions: {
-        tabBarLabel: ({ tintColor }) => (
-          <Text style={{ fontSize: 10, color: tintColor,textAlign:'center' ,marginBottom:5}}>
-            About
-          </Text>
-        ),
-        tabBarIcon: ({ horizontal, tintColor }) =>
-          <Icon iconStyle={{ marginTop:5 }} type="material"  raised={false} name="list" size={horizontal ? 20 : 25} color={tintColor} />
-      }
+     
     },
 
     Home: {
       screen: HomeNavigator,
-      navigationOptions: {
-        tabBarLabel: ({ tintColor }) => (
-          <Text style={{ fontSize: 10, color: tintColor,textAlign:'center',marginBottom:5 }}>
-            
-          </Text>
-        ),
-        tabBarIcon: ({ horizontal, tintColor }) =>
-          <Icon iconStyle={{ marginTop:5 }} type="material"  reverse={true}  raised={true} name="home" size={horizontal ? 20 : 30} color={tintColor} />
-        ,  
-       
-      }
+     
     },
     
     Settings: {
-      screen: SettingsScreen,
-      navigationOptions: {
-        tabBarLabel: ({ tintColor }) => (
-          <Text style={{ fontSize: 10, color: tintColor,textAlign:'center',marginBottom:5 }}>
-            Settings
-          </Text>
-        ),
-        tabBarIcon: ({ horizontal, tintColor }) =>
-          <Icon iconStyle={{ marginTop:5 }} type="material"  raised={false} name="settings"  size={horizontal ? 20 : 25} color={tintColor} />
-      }
+      screen: SettingsScreen,     
     }   
   },
   {    
+    defaultNavigationOptions: ({ navigation }) => ({
+      tabBarLabel: ({ focused,tintColor }) => {
+        const { routeName } = navigation.state;  
+        return (
+          <Text style={{ fontSize: 10, color: tintColor,textAlign:'center',marginBottom:5 }}>
+            {focused ? '' : routeName}
+          </Text>
+        )
+      },
+      tabBarIcon: ({ focused, horizontal, tintColor }) => {
+        const { routeName } = navigation.state;       
+        let iconName;
+        if (routeName === 'Home') {
+          iconName = `home`;      
+        } else if (routeName === 'Settings') {
+          iconName = `settings`;
+        }else if (routeName === 'About') {
+          iconName = `list`;
+        }
+
+        // You can return any component that you like here!
+        if(routeName == 'Home'){
+          return <Animatable.View animation="zoomIn" delay={200}><Icon iconStyle={{ marginTop:5}} type="material"  reverse={focused} reverseColor="#34495e"  raised={focused} name={iconName} size={horizontal ? 20 : 30} color={tintColor} /></Animatable.View>;
+        }
+        return <Icon iconStyle={{ marginTop:5}} type="material"  reverse={focused} reverseColor="#34495e"  raised={focused} name={iconName} size={horizontal ? 20 : 30} color={tintColor} />;
+      },
+    }),  
     initialRouteName : 'Home',
     tabBarOptions: {
-      activeTintColor: '#27ae60',
-      inactiveTintColor: 'gray',
+      activeTintColor: '#e5e5e5',
+      inactiveTintColor: '#ffffff',
       style : {
-        borderTopColor : '#27ae60',
-        borderTopWidth: 2,      
-        marginTop:1,
-        backgroundColor : '#fff',
+        //borderTopColor : 'rgba(52, 73, 94,1.0)',
+        //borderTopWidth: 8,      
+        marginTop:0,
+        backgroundColor : 'rgba(52, 73, 94,1)',
       }
     }
   }
@@ -111,7 +112,7 @@ const theme = {
       }
     },
     containerStyle : {
-      backgroundColor : 'rgba(46, 204, 113,.8)',
+      backgroundColor : '#34495e',
     }
   },
   Badge : {

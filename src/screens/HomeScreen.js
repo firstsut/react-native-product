@@ -1,16 +1,27 @@
 import React, {Component} from 'react';
-import {ScrollView,RefreshControl,View,StyleSheet,Dimensions} from 'react-native';
+import {ScrollView,RefreshControl,View,TouchableOpacity,StyleSheet} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-import {  ListItem ,Header,Icon,Button,Image,Rating } from 'react-native-elements';
+import {  ListItem ,Header,Icon,Button,Rating,Text } from 'react-native-elements';
 import ContentLoading from '../components/ContentLoading';
 import { connect } from 'react-redux';
 import { getMovies } from '../actions';
-import * as Animatable from 'react-native-animatable';
+import LinearGradient from 'react-native-linear-gradient';
 
 class HomeScreen extends Component{
   static navigationOptions = ({ navigation }) => {
-    return {
-      header : null     
+    return {          
+      title     : 'Home',
+      headerStyle: {
+        backgroundColor: '#34495e',   
+        elevation: 0,
+        shadowOpacity: 0     
+      },      
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'normal',
+        fontFamily:'Kanit-Regular'
+      },
+      tabBarVisible : false,
     };
   };
   constructor(props){
@@ -25,27 +36,34 @@ class HomeScreen extends Component{
     if(!this.state.loading && this.props.movies && this.props.movies.length > 0){    
       const { navigation } = this.props;  
       return this.props.movies.map((l, i) => (
+        <TouchableOpacity activeOpacity={0.6} key={i}  onPress={() => navigation.navigate('HomeDetail',{title:l.thai,theater_id:l.id})}>
         
-        <ListItem
-          key={i}          
-          leftAvatar={{ title: l.english[0]}}
-          title={l.english}
-          chevron  
-          titleStyle={{fontSize:14}} 
-          subtitleStyle={{fontSize:10}}          
-          onPress={() => navigation.navigate('HomeDetail',{title:l.thai,theater_id:l.id})}
-          bottomDivider={true}  
-          subtitle={l.thai}    
-          rightTitle={<Rating  
-            readonly={true}                        
-            type='star'
-            imageSize={14}           
-            startingValue={l.stars && l.stars > 5?5 : l.stars}                    
-          />}          
-        />
+          <ListItem  
+              linearGradientProps={{
+                colors: ['rgba(52, 73, 94,.7)', 'rgba(52, 73, 94,.75)']            
+              }}
+              ViewComponent={
+                LinearGradient
+              }         
+            leftAvatar={{ title: l.english[0]}}
+            title={l.english}           
+            chevron  
+            titleStyle={{fontSize:14,color:"white"}} 
+            subtitleStyle={{fontSize:10,color:"white"}}                              
+            subtitle={l.thai}    
+           /*  rightTitle={<Rating  
+              readonly={true}                        
+              type='custom'
+              imageSize={14}                                    
+              startingValue={(l.stars && l.stars > 5) || l.stars == 0 ?5 : l.stars}                    
+            />} */                      
+          />
+         
+        </TouchableOpacity>
         
       ));
-    }else{
+    }
+    else{      
       return (
           <ContentLoading length={10}/>
       )
@@ -99,14 +117,7 @@ class HomeScreen extends Component{
       
         <View style={{flex: 1,
           justifyContent: 'flex-end',
-          marginBottom: 1}}>
-        <Header         
-            centerComponent={<Animatable.Image animation="zoomIn" delay={200} source={require('../../resources/images/movie2.png')}
-            style={{ width: 65, height: 65 }}/>}    
-            containerStyle={{paddingBottom:30,paddingTop:30}}        
-        />
-       
-        
+          marginBottom: 0,marginTop:0}}>                      
          <ScrollView
             refreshControl={
            <RefreshControl
@@ -118,7 +129,7 @@ class HomeScreen extends Component{
          {this.showMovies()}
        </ScrollView >
 
-       <View style={{flexDirection: 'row',justifyContent:'center'}}>
+       {/* <View style={{flexDirection: 'row',justifyContent:'center'}}>
             <Button
               icon={
                 <Icon
@@ -133,7 +144,7 @@ class HomeScreen extends Component{
               onPress={()=>this.clearShowRealApp()}
               title="Clear Get Start App"
         />   
-        </View>
+        </View> */}
        </View>
      )    
   }
@@ -141,6 +152,22 @@ class HomeScreen extends Component{
 const mapStateToProps = ({ movies }) => ({
   movies
 });
-
+// Later on in your styles..
+var styles = StyleSheet.create({
+  linearGradient: {
+    flex: 1,
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 5
+  },
+  buttonText: {
+    fontSize: 18,
+    fontFamily: 'Gill Sans',
+    textAlign: 'center',
+    margin: 10,
+    color: '#ffffff',
+    backgroundColor: 'transparent',
+  },
+});
 const mapDispachToProps = ({ getMovies });
 export default connect(mapStateToProps, mapDispachToProps)(HomeScreen);
