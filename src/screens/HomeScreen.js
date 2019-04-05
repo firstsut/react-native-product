@@ -7,6 +7,8 @@ import { connect } from 'react-redux';
 import { getMovies } from '../actions';
 import LinearGradient from 'react-native-linear-gradient';
 
+
+
 class HomeScreen extends Component{
   static navigationOptions = ({ navigation }) => {
     return {          
@@ -27,18 +29,22 @@ class HomeScreen extends Component{
   };
   constructor(props){
     super(props);   
-    this.state = {
-        loading : false,
-        loadmore : false,
+    this.state = {             
         scrollY: new Animated.Value(0),                  
     }    
   }
 
   
   showMovies(){
-    if(!this.state.loading && this.props.movies.results && this.props.movies.results.length > 0){    
+    console.log(this.props.isFetching)
+    if(this.props.isFetching){
+      return (
+        <ContentLoading length={10}/>
+      )
+    }
+    else if( (!this.props.isFetching || !this.props.isLoadmore) && this.props.movies){    
       const { navigation } = this.props;  
-      return this.props.movies.results.map((l, i) => (
+      return this.props.movies.map((l, i) => (
         <TouchableOpacity activeOpacity={0.6} key={i}  onPress={() => navigation.navigate('HomeDetail',{title:l.thai,theater_id:l.id})}>
         
           <ListItem  
@@ -63,23 +69,9 @@ class HomeScreen extends Component{
       ));
     }
     else{      
-      return (
-          <ContentLoading length={10}/>
-      )
+      
     }    
   }
-
-  async getList(){
-    setTimeout(
-      function() {
-        this.props.getMovies();
-        this.stopLoading(); 
-      }
-      .bind(this),
-      200
-    );   
-  }
-
 
   async clearShowRealApp(){    
     try {
@@ -92,24 +84,12 @@ class HomeScreen extends Component{
     }
     
   }
-
-  async startLoading() {          
-    this.getList();     
-  }
-
-  stopLoading() {       
-    this.setState({loading: false});   
-  }
- 
-  async componentDidMount() {  
-    this.setState({loading: true});  
-    this.startLoading();       
-   
+  async componentDidMount() { 
+    this.props.getMovies();         
   }
 
   _onRefresh =async () => {    
-    this.setState({loading: true});  
-    this.startLoading();       
+    this.props.getMovies();         
   }
 
   isCloseToBottom = ({layoutMeasurement, contentOffset, contentSize}) => {
@@ -119,19 +99,11 @@ class HomeScreen extends Component{
   }
 
   async loadMoreData(){
-    if (this.state.loadmore) {
+    if (this.props.isLoadmore) {
       return
     }
-    if(this.props.movies && this.props.movies.next){
-      this.setState({loadmore: true})
-      setTimeout(
-        function() {
-          this.props.getMovies(this.props.movies.next);
-          this.setState({loadmore: false})
-        }
-        .bind(this),
-        200
-      );   
+    if(!this.props.isLoadmore && !this.props.isLoadmore && this.props.movies && this.props.next){
+      this.props.getMovies(this.props.next);
     }
     return
   }  
@@ -176,7 +148,7 @@ class HomeScreen extends Component{
         >
          {this.showMovies()}
          {
-           this.state.loadmore &&
+           this.props.isLoadmore &&
            <View style={{flex:1,minHeight:50,marginTop:30,marginBottom:30}}>
             <ActivityIndicator size="small" color="#000000" />
           </View>
@@ -204,7 +176,10 @@ class HomeScreen extends Component{
   }
 }
 const mapStateToProps = ({ movies }) => ({
-  movies
+  movies : movies.results,
+  next : movies.next,
+  isFetching : movies.isFetching,
+  isLoadmore : movies.isLoadmore,
 });
 // Later on in your styles..
 var styles = StyleSheet.create({

@@ -13,7 +13,7 @@ import {
   createStackNavigator
 } from 'react-navigation';
 import { Provider } from 'react-redux';
-import { createStore,applyMiddleware } from 'redux';
+import { createStore,applyMiddleware,compose } from 'redux';
 import reducers from './src/reducers';
 import reduxThunk from 'redux-thunk';
 import * as Animatable from 'react-native-animatable';
@@ -121,10 +121,15 @@ const theme = {
     }
   }
 };
+
+const middleware = [reduxThunk];
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, {}, composeEnhancers(applyMiddleware(...middleware)));
+
 class App extends Component {  
   render() {
     return (
-      <Provider store={createStore(reducers,{},applyMiddleware(reduxThunk))}>
+      <Provider store={store}>
         <ThemeProvider  theme={theme}>
           <AppContainer/>
         </ThemeProvider>

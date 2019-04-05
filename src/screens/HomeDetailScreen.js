@@ -30,8 +30,7 @@ class HomeDetailScreen extends React.Component {
     var date = new Date().getDate(); //Current Date
     var month = new Date().getMonth() + 1; //Current Month
     var year = new Date().getFullYear(); //Current Year
-    this.state = {
-      loading : false ,
+    this.state = {     
       date:  date + '/' + month + '/' + year 
     }    
   }
@@ -68,9 +67,14 @@ class HomeDetailScreen extends React.Component {
   }
 
   showTimes(){
-    if(!this.state.loading && this.props.showtimes){           
+    if(this.props.isFetching){
+      return (
+        <ContentLoading type="showtime" length={10}/>
+      )
+    }
+    else if(!this.props.isFetching && this.props.showtimes){           
       return this.props.showtimes.map((l, i) => (     
-          <Animatable.View   key={i}      animation="fadeInDown"> 
+          <Animatable.View   key={i}   delay={400}   animation="fadeInDown"> 
          
           <ListItem     
             linearGradientProps={{
@@ -89,48 +93,17 @@ class HomeDetailScreen extends React.Component {
        
         </Animatable.View>                    
       ));
-    }else{
-      return (
-          <ContentLoading type="showtime" length={10}/>
-      )
-    }   
-  }
-
-  async getList(){
-    setTimeout(
-      function() {
-        const {navigation} = this.props;
-        this.props.getShowTimes(navigation.getParam('theater_id'));
-        this.stopLoading(); 
-      }
-      .bind(this),
-      200
-    );   
-  }
-
-  stopLoading() {       
-    this.setState({loading: false});   
-  }
-
-  async componentWillMount() {  
-    this.setState({loading: true}); 
-    setTimeout(
-      function() {
-        this.props.getShowTimes(null);
-      }
-      .bind(this),
-      100
-    );       
+    }  
   }
 
   async componentDidMount() {  
-    this.setState({loading: true});   
-    this.getList();
+    const {navigation} = this.props;
+    this.props.getShowTimes(navigation.getParam('theater_id'));  
   }
 
-  _onRefresh =async () => {    
-    this.setState({loading: true});  
-    this.getList();       
+  _onRefresh =async () => {   
+    const {navigation} = this.props; 
+    this.props.getShowTimes(navigation.getParam('theater_id'));       
   }
 
   render() {
@@ -164,7 +137,8 @@ class HomeDetailScreen extends React.Component {
   }
 }
 const mapStateToProps = ({ showtimes }) => ({
-  showtimes
+  showtimes : showtimes.results,
+  isFetching : showtimes.isFetching
 });
 
 const mapDispachToProps = ({ getShowTimes });
