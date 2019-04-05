@@ -44,7 +44,7 @@ const AppNavigator = createBottomTabNavigator(
       tabBarLabel: ({ focused,tintColor }) => {
         const { routeName } = navigation.state;  
         return (
-          <Text style={{ fontSize: 10, color: tintColor,textAlign:'center',marginBottom:5 }}>
+          <Text style={{ fontSize: 10, color: tintColor,textAlign:'center',marginBottom:3 }}>
             {focused ? '' : routeName}
           </Text>
         )
@@ -62,20 +62,20 @@ const AppNavigator = createBottomTabNavigator(
 
         // You can return any component that you like here!
         if(routeName == 'Home'){
-          return <Animatable.View animation="zoomIn" delay={200}><Icon iconStyle={{ marginTop:5}} type="material"  reverse={focused} reverseColor="#34495e"  raised={focused} name={iconName} size={horizontal ? 20 : 30} color={tintColor} /></Animatable.View>;
+          return <Animatable.View animation="zoomIn" delay={200}><Icon  iconStyle={{ marginTop:5}} type="material"  reverse={focused} reverseColor="white"  raised={focused} name={iconName} size={30} color={tintColor} /></Animatable.View>;
         }
-        return <Icon iconStyle={{ marginTop:5}} type="material"  reverse={focused} reverseColor="#34495e"  raised={focused} name={iconName} size={horizontal ? 20 : 30} color={tintColor} />;
+        return <Icon iconStyle={{ marginTop:5}} type="material"  reverse={focused} reverseColor="white"  raised={focused} name={iconName} size={30} color={tintColor} />;
       },
     }),  
     initialRouteName : 'Home',
     tabBarOptions: {
-      activeTintColor: '#e5e5e5',
-      inactiveTintColor: '#ffffff',
+      activeTintColor: 'rgba(52, 73, 94,1.0)',
+      inactiveTintColor: 'rgba(52, 73, 94,1.0)',
       style : {
         //borderTopColor : 'rgba(52, 73, 94,1.0)',
         //borderTopWidth: 8,      
         marginTop:0,
-        backgroundColor : 'rgba(52, 73, 94,1)',
+        backgroundColor : 'rgba(236, 240, 241,1.0)',
       }
     }
   }

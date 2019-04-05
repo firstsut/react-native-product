@@ -43,7 +43,7 @@ class SplashScreen extends React.Component {
 
   render() {
     return (
-      <LinearGradient colors={['#57d68d', '#6cdb9b','#29b765']} style={styles.linearGradient}>
+      <LinearGradient colors={['rgba(52, 73, 94,.8)', 'rgba(52, 73, 94,.9)','rgba(44, 62, 80,1.0)']} style={styles.linearGradient}>
         <Animatable.Image
             animation="zoomInUp"
             source={require('../../resources/images/movie2.png')}

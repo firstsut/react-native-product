@@ -36,23 +36,32 @@ class HomeDetailScreen extends React.Component {
     }    
   }
 
-  getSubTitle(l){   
+  getSubTitle(l){  
+    let vip_label = <Text style={{height:0}}></Text>; 
+    if( l.cinema && l.cinema != '-'){
+      vip_label = <Badge textStyle={{color:"rgba(236, 240, 241,.9)"}} badgeStyle={{backgroundColor:"rgba(25,25,25,.5)",borderColor:"rgba(25,25,25,.8)",padding:5,margin:3,marginBottom:1}}  value={l.cinema && l.cinema != '-' ? l.cinema.toUpperCase():'-'} status="warning" />
+    }
     return(
-      <View style={{flex: 1,  flexDirection: 'column',justifyContent: 'space-around'}}>
-        <View style={{flex: 1}}>
-                <Badge textStyle={{color:"#7f8c8d"}} badgeStyle={{backgroundColor:"#eee"}} containerStyle={{ position: 'absolute', left: 0,top:10}} value={l.audio? l.audio.toUpperCase():'TH'} status="warning" />
-                <Badge textStyle={{color:"#7f8c8d"}} badgeStyle={{backgroundColor:"#eee"}} containerStyle={{ position: 'absolute', left: 30,top:10}} value={l.technology.toUpperCase()} status="warning" />         
-                <Badge textStyle={{color:"#7f8c8d"}} badgeStyle={{backgroundColor:"#eee",display:(l.cinema && l.cinema != '-' ? 'flex' : 'none')}} containerStyle={{ position: 'absolute', left: 60,top:10}} value={l.cinema && l.cinema != '-' ? l.cinema.toUpperCase():'-'} status="warning" />
-          </View>                            
-        <View style={{flex: 1}}>        
+      <View style={{flex: 1,  flexDirection: 'column'}}>
+         <View style={{flex: 1,flexDirection:"row",flexWrap:"wrap",marginBottom:0,marginTop:5}}>
+                <Badge textStyle={{color:"rgba(236, 240, 241,.9)"}} badgeStyle={{backgroundColor:"rgba(25,25,25,.5)",borderColor:"rgba(25,25,25,.8)",padding:5,margin:3,marginBottom:1}} value={l.audio? l.audio.toUpperCase():'TH'} status="warning" />
+                <Badge textStyle={{color:"rgba(236, 240, 241,.9)"}} badgeStyle={{backgroundColor:"rgba(25,25,25,.5)",borderColor:"rgba(25,25,25,.8)",padding:5,margin:3,marginBottom:1}}  value={l.technology.toUpperCase()} status="warning" />         
+                {
+                 vip_label
+                }
+                
+          </View>       
+        <View style={{flex: 1,flexDirection:"row",flexWrap:"wrap",marginBottom:10}}>        
         {
            l.showtimes.map((item,i)=>{
              return (
-              <Badge key={item} textStyle={{color:"#7f8c8d"}} badgeStyle={{backgroundColor:"#eee"}} containerStyle={{ position: 'absolute', left: ((i)*45)}} value={item} status="warning" />              
+              <Badge key={item} textStyle={{color:"rgba(236, 240, 241,.9)"}} badgeStyle={{backgroundColor:"rgba(25,25,25,.5)",borderColor:"rgba(25,25,25,.8)",padding:5,margin:3}}  value={item} status="warning" />
              )
            })
          } 
         </View>
+                             
+       
       </View>               
     )
   }
@@ -60,7 +69,7 @@ class HomeDetailScreen extends React.Component {
   showTimes(){
     if(!this.state.loading && this.props.showtimes){           
       return this.props.showtimes.map((l, i) => (     
-          <Animatable.View   key={i}      animation="fadeInDown"  delay={100}> 
+          <Animatable.View   key={i}      animation="fadeInDown"> 
           <ListItem     
             linearGradientProps={{
               colors: ['rgba(52, 73, 94,.7)', 'rgba(52, 73, 94,.8)']            
@@ -68,12 +77,13 @@ class HomeDetailScreen extends React.Component {
             ViewComponent={
               LinearGradient
             }                                     
-            containerStyle={{padding:0,margin:0,minHeight:120,minWidth:90,borderWidth:0,borderColor:'transparent'}} 
-            leftAvatar={{containerStyle:{minHeight:120,minWidth:90},avatarStyle:{minHeight:120,minWidth:90},size:'large',rounded:false,source: { uri: l.movie_poster.substring(0,l.movie_poster.indexOf('.jpg')+4)} }}   
-            titleStyle={{fontSize:24,marginTop:20,color:'white'}}            
-            rightTitle={<Badge textStyle={{color:'#34495e'}} badgeStyle={{backgroundColor:"#f5d557",borderWidth:0,position:'relative',bottom:20,padding:8,right:5}} value={l.movie_duration+' MIN'} status="warning" />}                                               
-            title={l.movie_title}  
-            subtitle={this.getSubTitle(l)}              
+            containerStyle={{padding:0,margin:0,borderWidth:0,borderColor:'transparent'}} 
+            leftAvatar={{containerStyle:{minHeight:130,minWidth:100},size:'large',rounded:false,source: { resizeMode: "cover", uri: l.movie_poster.substring(0,l.movie_poster.indexOf('.jpg')+4)} }}   
+            titleStyle={{fontSize:20,marginTop:30,color:'white'}} 
+            titleProps={{flex:1,numberOfLines:1}}           
+            rightTitle={<Badge textStyle={{color:'#34495e',fontWeight:"normal"}} badgeStyle={{backgroundColor:"#f5d557",borderWidth:0,position:'relative',bottom:20,padding:8,right:5}} value={l.movie_duration+' MIN'} status="warning" />}                                               
+            title={l.movie_title} 
+            subtitle={this.getSubTitle(l)}                                      
         />   
         </Animatable.View>                    
       ));

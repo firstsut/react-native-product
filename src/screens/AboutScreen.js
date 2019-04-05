@@ -17,7 +17,7 @@ class AboutScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>About Screen</Text>
+        <Text style={{color:"white"}}>About Screen</Text>
       </View>
     );
   }
