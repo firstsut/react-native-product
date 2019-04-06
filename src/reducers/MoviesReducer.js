@@ -3,6 +3,7 @@ const INITIAL_STATE = {
   next  : null,
   isFetching : false,
   isLoadmore : false,
+  count  : 0,
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -21,7 +22,8 @@ export default (state = INITIAL_STATE, action) => {
           results: [],
           next : null,         
           isFetching : true,
-          isLoadmore : false
+          isLoadmore : false,
+          count : 0
         });       
     case 'GET_MOVIES':
       return Object.assign(
@@ -29,9 +31,10 @@ export default (state = INITIAL_STATE, action) => {
         state, 
         { 
           results: state.results.concat(action.payload.results),
-          next : action.payload.next || state.next,
+          next : action.payload.next,
           isFetching : false,
-          isLoadmore : false
+          isLoadmore : false,
+          count : action.payload.count
         }); 
     default:
       return state;

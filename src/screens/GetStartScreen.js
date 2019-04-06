@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View,StyleSheet} from 'react-native';
+import {View,StyleSheet,StatusBar} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { Icon ,Text,Image} from 'react-native-elements';
 import AppIntroSlider from 'react-native-app-intro-slider';
@@ -65,7 +65,7 @@ export default class GetStartScreen extends Component{
         marginBottom:30
       },
       text: 'Showtime movies each theater',          
-      backgroundColor : "#34495e"
+      backgroundColor : "#34495e",     
     }   
   ];
   
@@ -75,7 +75,7 @@ export default class GetStartScreen extends Component{
   }
  
 
-  _renderNextButton = () => {
+  _renderNextButton = () => {    
     return (
       <View style={this.styles.buttonCircle}>
         <Icon
@@ -112,10 +112,12 @@ export default class GetStartScreen extends Component{
   }
 
   _renderItem = (item) => {
+ 
     return (
       <View style={{backgroundColor:item.backgroundColor,flex: 1,
         alignItems: 'center',
         justifyContent: 'space-around',}}>
+        <StatusBar backgroundColor="#1abc9c" barStyle="light-content" />
         <Text style={item.textStyle}>{item.title}</Text>
         <Animatable.Image iterationCount="infinite"  duration={2000} animation="pulse" style={{ width: 250, height: 250 }} source={item.image} />
         <Text style={item.titleStyle}>{item.text}</Text>
@@ -123,16 +125,20 @@ export default class GetStartScreen extends Component{
     );
   }
 
+  _slideChange = (index,lastIndex)=>{
+    StatusBar.setBackgroundColor(this.slides[index].backgroundColor)
+  }
   
   
   render() {  
     return(
         <AppIntroSlider
-           renderItem={this._renderItem}
+          renderItem={this._renderItem}
           slides={this.slides}
           renderDoneButton={this._renderDoneButton}
           renderNextButton={this._renderNextButton}
           onDone={this._onDone}
+          onSlideChange={this._slideChange}
         />
     )
   }
